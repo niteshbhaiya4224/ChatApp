@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserList</title>
+</head>
+<body>
+    <h2 th:each="user : ${users}">
+        <span th:if="${user.username}!=${person.username}">
+        <form th:action="@{/get}" method="post">
+            <button th:value="${user.username}" name="muser" th:text="${user.username}"></button>
+        </form>
+        </span>
+    </h2>
+</body>
+</html>

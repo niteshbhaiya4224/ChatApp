@@ -1,0 +1,2 @@
+Person - loggedin user
+user - database user

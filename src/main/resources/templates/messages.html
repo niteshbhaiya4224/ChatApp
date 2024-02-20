@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message Controller</title>
+    <style>
+      body {
+        background-color: black;
+        color: aqua; /* Set default text color for better visibility */
+      }
+
+      h1,
+      p {
+        display: inline;
+      }
+
+      h2 {
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Message Center</h1>
+
+    <form th:action="@{/getM}" method="post">
+      <p>
+        Message =
+        <input
+          type="text"
+          placeholder="Enter Your message"
+          required
+          name="message"
+        />
+      </p>
+      <input type="submit" value="Send message" />
+    </form>
+
+    <span th:each="m: ${messages}">
+      <span th:if="${m.sender}!=null">
+        <span style="color: white" th:text="${m.sender}"></span>
+        &nbsp; - &nbsp;
+      <span style="color: blueviolet" th:text="${m.receiver}"></span> :
+      <span style="color: chartreuse" th:text="${m.message}"></span><br />
+    </span>
+    </span>
+  </body>
+</html>
